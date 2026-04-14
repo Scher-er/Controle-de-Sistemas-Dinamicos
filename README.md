@@ -2,7 +2,7 @@
 
 O **Seu Amigo de Todas as Horas** é uma ferramenta completa de Engenharia de Controle e Automação desenvolvida em Python. O software foi projetado para auxiliar estudantes e profissionais na análise de sistemas dinâmicos, oferecendo desde a simplificação de diagramas de blocos até a análise detalhada de estabilidade e erro em regime permanente.
 
-> "Boa noite, Virginia, esse programa não foi copiado de ninguém, ok?"
+
 
 ---
 

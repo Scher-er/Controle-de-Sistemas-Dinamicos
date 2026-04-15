@@ -55,7 +55,7 @@ class App(ctk.CTk):
         self.telas["Home"] = frame_home
         
         ctk.CTkLabel(frame_home, text="BOA NOITE, VIRGINIA", font=ctk.CTkFont(size=36, weight="bold")).pack(pady=(40, 5), anchor="w", padx=40)
-        ctk.CTkLabel(frame_home, text="Bem-vinda de volta ao Seu Amigo de Todas as Horas.\nTodas as ferramentas de controlo dinâmico estão prontas e operacionais.", font=ctk.CTkFont(size=16), text_color="gray", justify="left").pack(pady=(0, 20), anchor="w", padx=40)
+        ctk.CTkLabel(frame_home, text="Bem-vinda de volta ao Seu Amigo de Todas as Horas.\nTodas as ferramentas de controle dinâmico estão prontas e operacionais.", font=ctk.CTkFont(size=16), text_color="gray", justify="left").pack(pady=(0, 20), anchor="w", padx=40)
         
         frame_cards = ctk.CTkFrame(frame_home, fg_color="transparent")
         frame_cards.pack(fill="both", expand=True, padx=40)
@@ -368,10 +368,10 @@ class App(ctk.CTk):
         self.txt_l.delete("0.0", "end"); self.txt_l.insert("0.0", f"f(t) = {sp.simplify(f)}")
 
     def setup_tab_formulas(self, f):
-        ctk.CTkLabel(f, text="Fórmulas de Controlo Dinâmico", font=ctk.CTkFont(size=24, weight="bold")).pack(pady=20, padx=30, anchor="w")
+        ctk.CTkLabel(f, text="Fórmulas de Controle Dinâmico", font=ctk.CTkFont(size=24, weight="bold")).pack(pady=20, padx=30, anchor="w")
         
         texto_formulas = """
-        === GUIA RÁPIDO DE ENGENHARIA DE CONTROLO ===
+        === GUIA RÁPIDO DE ENGENHARIA DE CONTROLE ===
 
         [ 1. SISTEMAS DE 2ª ORDEM ]
         Forma Padrão: G(s) = ωn² / (s² + 2ζωns + ωn²)

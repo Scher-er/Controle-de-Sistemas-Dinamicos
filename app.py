@@ -91,7 +91,7 @@ class App(ctk.CTk):
             btn.configure(fg_color=self.cor_destaque if nome == nome_tela else "transparent")
 
     # ==========================================
-    # NOVO: LUGAR GEOMÉTRICO DAS RAÍZES (LGR)
+    # LUGAR GEOMÉTRICO DAS RAÍZES (LGR) (Falta Homologar!)
     # ==========================================
     def setup_tab_lgr(self, f):
         ctk.CTkLabel(f, text="Análise do Lugar das Raízes (LGR)", font=ctk.CTkFont(size=24, weight="bold")).pack(pady=20, padx=30, anchor="w")
@@ -178,7 +178,7 @@ class App(ctk.CTk):
             messagebox.showerror("Erro", "Expressão inválida. Verifique os parênteses.")
 
     # ==========================================
-    # NOVO: AVALIAÇÃO COMPLEXA
+    # AVALIAÇÃO COMPLEXA
     # ==========================================
     def setup_tab_complexo(self, f):
         ctk.CTkLabel(f, text="Avaliação Complexa de F(s)", font=ctk.CTkFont(size=24, weight="bold")).pack(pady=20, padx=30, anchor="w")
@@ -238,9 +238,9 @@ class App(ctk.CTk):
             messagebox.showerror("Erro", "Expressão inválida. Use 'j' para imaginário e verifique a função matemática.")
 
     # ==========================================
-    # FUNÇÕES DOS OUTROS MÓDULOS (MANTIDOS)
+    # FUNÇÕES DOS OUTROS MÓDULOS 
     # ==========================================
-    # (O código de Erro, Blocos, Routh, Laplace e Degrau permanece intacto e funcional conforme as iterações anteriores)
+    # (O código de Erro, Blocos, Routh, Laplace, Degrau, etc )
     
     def setup_tab_erro(self, frame):
         ctk.CTkLabel(frame, text="Erro em Regime Permanente e Transitório", font=ctk.CTkFont(size=24, weight="bold")).pack(pady=(20,5), anchor="w", padx=20)

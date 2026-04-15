@@ -368,10 +368,60 @@ class App(ctk.CTk):
         self.txt_l.delete("0.0", "end"); self.txt_l.insert("0.0", f"f(t) = {sp.simplify(f)}")
 
     def setup_tab_formulas(self, f):
-        ctk.CTkLabel(f, text="Fórmulas de Controlo", font=ctk.CTkFont(size=24, weight="bold")).pack(pady=20, padx=30, anchor="w")
-        t = ctk.CTkTextbox(f, width=800, height=500); t.pack(padx=30, pady=10)
-        t.insert("0.0", "[ COMPLETO NO CÓDIGO ORIGINAL ]")
-        t.configure(state="disabled")
+        ctk.CTkLabel(f, text="Fórmulas de Controlo Dinâmico", font=ctk.CTkFont(size=24, weight="bold")).pack(pady=20, padx=30, anchor="w")
+        
+        texto_formulas = """
+        === GUIA RÁPIDO DE ENGENHARIA DE CONTROLO ===
+
+        [ 1. SISTEMAS DE 2ª ORDEM ]
+        Forma Padrão: G(s) = ωn² / (s² + 2ζωns + ωn²)
+
+        • Frequência Natural Amortecida: ωd = ωn * √(1 - ζ²)
+        • Fator de Atenuação:            σ = ζ * ωn
+        • Tempo de Subida (tr):          tr = (π - β) / ωd   (β = arccos(ζ) em rad)
+        • Instante de Pico (tp):         tp = π / ωd
+        • Sobressinal Máximo (Mp%):      Mp = exp( -(ζ*π) / √(1 - ζ²) ) * 100
+        • Tempo de Acomodação (ts 2%):   ts = 4 / (ζ * ωn)
+        • Tempo de Acomodação (ts 5%):   ts = 3 / (ζ * ωn)
+
+        -------------------------------------------------------------------------
+        [ 2. ERRO EM REGIME PERMANENTE E TIPO DE SISTEMA ]
+        O 'Tipo' é o número de integradores puros (polos na origem, s^n).
+
+        • Constante de Posição:    Kp = lim(s->0) G(s)
+        • Constante de Velocidade: Kv = lim(s->0) sG(s)
+        • Constante de Aceleração: Ka = lim(s->0) s²G(s)
+
+        Erros Estacionários (ess):
+        • Entrada Degrau (1/s):    ess = 1 / (1 + Kp)   (Zero para Tipo >= 1)
+        • Entrada Rampa (1/s²):    ess = 1 / Kv         (Zero para Tipo >= 2)
+        • Entrada Parábola (1/s³): ess = 1 / Ka         (Zero para Tipo >= 3)
+
+        -------------------------------------------------------------------------
+        [ 3. ÁLGEBRA DE BLOCOS ]
+        • Função de Malha Fechada T(s) = G(s) / (1 ± G(s)H(s))
+          Use sinal (+) no denominador para realimentação NEGATIVA.
+          Use sinal (-) no denominador para realimentação POSITIVA.
+
+        -------------------------------------------------------------------------
+        [ 4. LUGAR GEOMÉTRICO DAS RAÍZES (LGR) ]
+        Seja n = número de polos e m = número de zeros.
+
+        • Ramos no infinito (Assíntotas) = n - m
+        • Centroide das Assíntotas (σa):
+          σa = ( Σ Polos_reais - Σ Zeros_reais ) / (n - m)
+
+        • Ângulos das Assíntotas (θa):
+          θa = [ (2k + 1) * 180° ] / (n - m)    para k = 0, 1, 2... (n-m-1)
+
+        • Pontos de Quebra / Encontro (Breakaway points):
+          Encontrados pelas raízes da derivada dK/ds = 0
+        """
+        
+        textbox = ctk.CTkTextbox(f, width=850, height=550, font=("Courier", 14), fg_color="#1A1A1A")
+        textbox.pack(padx=30, pady=10, anchor="w")
+        textbox.insert("0.0", texto_formulas)
+        textbox.configure(state="disabled") # Trava para não ser editável pelo usuário
 
 if __name__ == "__main__":
     app = App(); app.mainloop()
